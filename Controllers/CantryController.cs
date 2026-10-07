@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using _2026_10_06.Models;
+//using _2026_10_06.Models;
 
 namespace webApi.Controllers;
 
@@ -12,8 +12,9 @@ public class CantryController : ControllerBase
         "italy","franc","kanady","ingland","isreal"
     };
 
-    private static List<NutCantry>? arr;
-    
+    //private static List<NutCantry>? arr;
+    private readonly ILogger<CantryController> _logger;
+
     public CantryController(ILogger<CantryController> logger)
     {
         _logger = logger;
@@ -26,7 +27,7 @@ public class CantryController : ControllerBase
         {
             size=Random.Shared.Next(10000, 1000000),
             countPupale = Random.Shared.Next(120, 1000000),
-          name =CantryName[Random.Shared.Next(cantry.Length)]
+          name =CantryName[Random.Shared.Next(CantryName.Length)]
         })
         .ToArray();
     }
